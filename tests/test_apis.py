@@ -92,7 +92,7 @@ class TestAddAPI(Tests):
         db[book_to_add['isbn']] = book_to_add
         response = self.client.post(f'/books', json=book_to_add, auth=HTTPBasicAuth('admin', 'admin'))
         self.assertEqual(response.status_code, 400)
-        self.assertEqual('Book already exists', response.json()['error'])
+        self.assertEqual('Book already exists', response.json()['detail'])
 
     def test_add_book__success__multiple_books_in_db(self):
         book_to_add_1 = {

@@ -11,7 +11,7 @@ class Book(BaseModel):
     publication_date: date
 
 class UpdateBook(BaseModel):
-    title: Optional[str]
-    author: Optional[str]
-    publisher: Optional[str]
-    publication_date: Optional[date]
+    title: Optional[str] = None
+    author: Optional[str] = None
+    publisher: Optional[str] = None
+    publication_date: Optional[date] = None
