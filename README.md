@@ -31,7 +31,7 @@ This is a simple FastAPI application that provides a RESTful API for managing a 
 ## Running the Application
 
 Start the FastAPI application using Uvicorn:
-    ```bash
+    ```
     python run_server.py
     ```
 
