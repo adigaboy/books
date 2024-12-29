@@ -32,7 +32,7 @@ This is a simple FastAPI application that provides a RESTful API for managing a 
 
 Start the FastAPI application using Uvicorn:
     ```bash
-    uvicorn app:app --reload
+    python run_server.py
     ```
 
 ## Testing the Application

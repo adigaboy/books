@@ -1,3 +1,4 @@
+from collections import defaultdict
 from typing import Annotated, Dict, List
 
 from fastapi import Depends, FastAPI, Response
@@ -8,7 +9,7 @@ from common.schemes import Book, UpdateBook
 app = FastAPI()
 
 db: Dict[str, Book] = {}
-authors_books: Dict[str, List[str]] = {}
+authors_books: Dict[str, List[str]] = defaultdict(list)
 
 
 @app.get("/books/{book_id}")
@@ -38,6 +39,7 @@ async def add_book(
         response.status_code = 400
         return {"error": "Book already exists"}
     db[book.isbn] = book
+    authors_books[book.author].append(book.isbn)
     return db[book.isbn]
 
 @app.put("/books/{book_id}")
